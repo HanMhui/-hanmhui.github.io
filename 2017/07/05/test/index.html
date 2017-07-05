@@ -5,16 +5,22 @@
   
   <title>test | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="你好 欢迎来到我的博客。">
+  <meta name="description" content="在git bash 中执行设置记住密码（默认15分钟）：git config –global credential.helper cache如果想自己设置时间，可以这样做：git config credential.helper ‘cache –timeout=3600’这样就设置一个小时之后失效长期存储密码：git config –global credential.helper store #">
 <meta property="og:type" content="article">
 <meta property="og:title" content="test">
 <meta property="og:url" content="http://hanmhui.com/2017/07/05/test/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="你好 欢迎来到我的博客。">
-<meta property="og:updated_time" content="2017-07-05T05:24:12.739Z">
+<meta property="og:description" content="在git bash 中执行设置记住密码（默认15分钟）：git config –global credential.helper cache如果想自己设置时间，可以这样做：git config credential.helper ‘cache –timeout=3600’这样就设置一个小时之后失效长期存储密码：git config –global credential.helper store #">
+<meta property="og:image" content="http://hanmhui.com/images/hh.png">
+<meta property="og:image" content="http://hanmhui.com/images/2.png">
+<meta property="og:image" content="http://hanmhui.com/images/3.jpg">
+<meta property="og:image" content="http://hanmhui.com/images/4.jpg">
+<meta property="og:image" content="http://hanmhui.com/images/5.jpg">
+<meta property="og:updated_time" content="2017-07-05T07:54:14.860Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="test">
-<meta name="twitter:description" content="你好 欢迎来到我的博客。">
+<meta name="twitter:description" content="在git bash 中执行设置记住密码（默认15分钟）：git config –global credential.helper cache如果想自己设置时间，可以这样做：git config credential.helper ‘cache –timeout=3600’这样就设置一个小时之后失效长期存储密码：git config –global credential.helper store #">
+<meta name="twitter:image" content="http://hanmhui.com/images/hh.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -85,12 +91,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>你好 欢迎来到我的博客。</p>
+        <p>在git bash 中执行<br>设置记住密码（默认15分钟）：<br>git config –global credential.helper cache<br>如果想自己设置时间，可以这样做：<br>git config credential.helper ‘cache –timeout=3600’<br>这样就设置一个小时之后失效<br>长期存储密码：<br>git config –global credential.helper store</p>
+<p>##使用ssh方式</p>
+<p>1、在每次push 的时候，都要输入用户名和密码，是不是很麻烦？原因是使用了https方式 push，在git bash里边输入 git remote -v<br>可以看到形如一下的返回结果：<br><img src="/images/hh.png" alt="“hh”"><br>2、接下来，我们把它换成ssh方式的。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git remote rm origin<span class="string">"</span></div><div class="line">$ git remote add origin git@github.com:sosout/myblog.git"</div><div class="line">$ git push origin<span class="string">"</span></div></pre></td></tr></table></figure></p>
+<p>3、问题是不是解决了呢？可能这样还不行，还应该添加SSH公匙。ssh-keygen -t rsa -C “email”,email是你注册在github上的邮箱。<br><img src="/images/2.png" alt="“hh”"><br>我这边因为之前就有设置，所以会提示是否覆盖，小括号里有文件的路径.<br><img src="/images/3.jpg" alt="“hh”"><br>4、进入自己的github主页，然后点击setting，再点击左侧导航中的SSH and GPG keys<br><img src="/images/4.jpg" alt="“hh”"><br>5、点击右侧的New SSH key，会出现如下界面<br><img src="/images/5.jpg" alt="“hh”"><br>这样以后push 就可以不用输入密码了</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hanmhui.com/2017/07/05/test/" data-id="cj4qlvcrf00015wl1zgu7qtl4" class="article-share-link">Share</a>
+      <a data-url="http://hanmhui.com/2017/07/05/test/" data-id="cj4qpjohp0001vsl1o9ju06b8" class="article-share-link">Share</a>
       
       
     </footer>
