@@ -56,7 +56,7 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
+				<li><a href="/notes/index.html">随笔</a></li>
 	        
 			</ul>
 		</nav>
@@ -138,7 +138,7 @@
 				
 					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 50%"><a href="/notes/index.html">随笔</a></li>
 		        
 				</ul>
 			</nav>
@@ -280,6 +280,9 @@
       
         <p><a href="http://www.myexception.cn/other/1391134.html" target="_blank" rel="external">60个开发者不容错过的免费资源库</a></p>
 <p><a href="http://www.appinn.com/markdown/" target="_blank" rel="external">Markdown 语法说明 (简体中文版)</a> </p>
+<p><a href="http://www.yiibai.com/postgresql/postgresql-not-condition.html" target="_blank" rel="external">Postgres SQL教程</a></p>
+<p><a href="https://es.xiaoleilu.com/010_Intro/00_README.html" target="_blank" rel="external">Elasticsearch权威指南(中文版)</a></p>
+<p><a href="http://10.255.83.22:40003/" target="_blank" rel="external">Elasticsearch 测试(公司内部)</a></p>
 
       
 
@@ -412,7 +415,7 @@
 <p>document.body.onkeydown = function (evt) {<br>evt = evt ? evt : (window.event ? window.event : null);<br>if (13 == evt.keyCode &amp;&amp; evt.ctrlKey) {<br>   evt.returnValue = false;<br>   evt.cancel = true;<br>   PostData();<br>}<br>};　</p>
 </blockquote>
 <h3 id="24-获取当前时间"><a href="#24-获取当前时间" class="headerlink" title="24.获取当前时间"></a>24.获取当前时间</h3><blockquote>
-<p>function GetCurrentDate() {<br>   var d = new Date();<br>   var y = d.getYear()+1900;<br>   month = add_zero(d.getMonth() + 1),<br>   days = add_zero(d.getDate()),<br>   hours = add_zero(d.getHours());<br>   minutes = add_zero(d.getMinutes()),<br>   seconds = add_zero(d.getSeconds());<br>   var str = y + ‘-‘ + month + ‘-‘ + days + ‘ ‘ + hours + ‘:’ + minutes + ‘:’ + seconds;<br>   return str;<br>};<br>function add_zero(temp) {<br>   if (temp &lt; 10) return “0” + temp;<br>   else return temp;<br>}</p>
+<p>const time_format=()=&gt;{<br>    const date=new Date();<br>    let year=date.getFullYear();<br>    let month=zero_add(date.getMonth()+1);<br>    let day=zero_add(date.getDate());<br>    let hours=zero_add(date.getHours());<br>    let minutes=zero_add(date.getMinutes());<br>    let seconds=zero_add(date.getSeconds());<br>    return year+’-‘+month+’-‘+day+” “+hours+’:’+minutes+’:’+seconds<br>    // 2017-7-14 14:02:07<br>}<br>const zero_add=(date)=&gt;{<br>  if(date&lt;10)<br>    date=’0’+date;<br>  return date;<br>}<br>console.log(time_format())</p>
 </blockquote>
 <h3 id="25-Js去掉空格方法"><a href="#25-Js去掉空格方法" class="headerlink" title="25. Js去掉空格方法"></a>25. Js去掉空格方法</h3><blockquote>
 <p>String.prototype.Trim = function()<br>{ return this.replace(/(^s<em>)|(s</em>$)/g, “”); }<br>String.prototype.LTrim = function()<br>{return this.replace(/(^s<em>)/g, “”);}<br>String.prototype.RTrim = function()<br>{return this.replace(/(s</em>$)/g, “”);}　</p>
@@ -643,11 +646,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color5">技术文章</a>
+                <a href="javascript:void(0)" class="color1">Javascript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color1">Javascript</a>
+                <a href="javascript:void(0)" class="color5">技术文章</a>
               </li>
              
               <li class="article-tag-list-item">
