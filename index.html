@@ -175,7 +175,13 @@
       
         <h3 id="获取命令行参数"><a href="#获取命令行参数" class="headerlink" title="获取命令行参数"></a>获取命令行参数</h3><p>如运行 python run.py hello 在run.py内部获得hello<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="keyword">print</span> sys.argv[<span class="number">1</span>] <span class="comment">#hello</span></div></pre></td></tr></table></figure></p>
 <h3 id="连接elasticsearch"><a href="#连接elasticsearch" class="headerlink" title="连接elasticsearch"></a>连接elasticsearch</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">es = Elasticsearch([&#123;<span class="string">'host'</span>:<span class="string">'10.255.83.22'</span>,<span class="string">'port'</span>:<span class="number">9200</span>&#125;])</div><div class="line">es.delete(index=<span class="string">'htc'</span>,timeout=<span class="number">30</span>)<span class="comment">#清理htc</span></div></pre></td></tr></table></figure>
-
+<h1 id="清理hec-stc数据库（执行数据库中函数）"><a href="#清理hec-stc数据库（执行数据库中函数）" class="headerlink" title="清理hec_stc数据库（执行数据库中函数）"></a>清理hec_stc数据库（执行数据库中函数）</h1><pre><code>conn2 = psycopg2.connect(database=&apos;htc_stc&apos;, user=&quot;postgres&quot;,password=&quot;1111&quot;, host=&quot;10.255.84.153&quot;, port=&quot;5432&quot;)
+cur2 = conn.cursor()
+cur2.execute(&quot;SELECT public.delete_event_funtion()&quot;)
+conn2.commit()
+cur2.close()
+conn2.close()
+</code></pre>
       
 
       
@@ -575,7 +581,7 @@
         <p>在git bash 中执行<br>设置记住密码（默认15分钟）：<br>git config –global credential.helper cache<br>如果想自己设置时间，可以这样做：<br>git config credential.helper ‘cache –timeout=3600’<br>这样就设置一个小时之后失效</p>
 <h3 id="长期存储密码："><a href="#长期存储密码：" class="headerlink" title="长期存储密码："></a>长期存储密码：</h3><p>git config –global credential.helper store</p>
 <h2 id="使用ssh方式"><a href="#使用ssh方式" class="headerlink" title="使用ssh方式"></a>使用ssh方式</h2><p>1、在每次push 的时候，都要输入用户名和密码，是不是很麻烦？原因是使用了https方式 push，在git bash里边输入 git remote -v<br>可以看到形如一下的返回结果：</p>
-<p><img src="/images/hh.png" alt="“hh”"><br>2、接下来，我们把它换成ssh方式的。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git remote rm origin<span class="string">"</span></div><div class="line">$ git remote add origin git@github.com:sosout/myblog.git"</div><div class="line">$ git push origin<span class="string">"</span></div></pre></td></tr></table></figure></p>
+<p><img src="assets/images/git/hh.png" alt="“hh”"><br>2、接下来，我们把它换成ssh方式的。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git remote rm origin<span class="string">"</span></div><div class="line">$ git remote add origin git@github.com:sosout/myblog.git"</div><div class="line">$ git push origin<span class="string">"</span></div></pre></td></tr></table></figure></p>
 <p>3、问题是不是解决了呢？可能这样还不行，还应该添加SSH公匙。ssh-keygen -t rsa -C “email”,email是你注册在github上的邮箱。</p>
 <p><img src="/images/2.png" alt="“hh”"></p>
 <p>我这边因为之前就有设置，所以会提示是否覆盖，小括号里有文件的路径. </p>

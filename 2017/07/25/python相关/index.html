@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://hanmhui.com/2017/07/25/python相关/index.html">
 <meta property="og:site_name" content="HanMingHui">
 <meta property="og:description" content="获取命令行参数如运行 python run.py hello 在run.py内部获得hello12import sysprint sys.argv[1] #hello 连接elasticsearch12es = Elasticsearch([&amp;#123;&apos;host&apos;:&apos;10.255.83.22&apos;,&apos;port&apos;:9200&amp;#125;])es.delete(index=&apos;htc&apos;,timeout=30">
-<meta property="og:updated_time" content="2017-07-25T07:20:29.390Z">
+<meta property="og:updated_time" content="2017-07-25T07:39:44.280Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python相关">
 <meta name="twitter:description" content="获取命令行参数如运行 python run.py hello 在run.py内部获得hello12import sysprint sys.argv[1] #hello 连接elasticsearch12es = Elasticsearch([&amp;#123;&apos;host&apos;:&apos;10.255.83.22&apos;,&apos;port&apos;:9200&amp;#125;])es.delete(index=&apos;htc&apos;,timeout=30">
@@ -177,7 +177,13 @@
       
         <h3 id="获取命令行参数"><a href="#获取命令行参数" class="headerlink" title="获取命令行参数"></a>获取命令行参数</h3><p>如运行 python run.py hello 在run.py内部获得hello<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="keyword">print</span> sys.argv[<span class="number">1</span>] <span class="comment">#hello</span></div></pre></td></tr></table></figure></p>
 <h3 id="连接elasticsearch"><a href="#连接elasticsearch" class="headerlink" title="连接elasticsearch"></a>连接elasticsearch</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">es = Elasticsearch([&#123;<span class="string">'host'</span>:<span class="string">'10.255.83.22'</span>,<span class="string">'port'</span>:<span class="number">9200</span>&#125;])</div><div class="line">es.delete(index=<span class="string">'htc'</span>,timeout=<span class="number">30</span>)<span class="comment">#清理htc</span></div></pre></td></tr></table></figure>
-
+<h1 id="清理hec-stc数据库（执行数据库中函数）"><a href="#清理hec-stc数据库（执行数据库中函数）" class="headerlink" title="清理hec_stc数据库（执行数据库中函数）"></a>清理hec_stc数据库（执行数据库中函数）</h1><pre><code>conn2 = psycopg2.connect(database=&apos;htc_stc&apos;, user=&quot;postgres&quot;,password=&quot;1111&quot;, host=&quot;10.255.84.153&quot;, port=&quot;5432&quot;)
+cur2 = conn.cursor()
+cur2.execute(&quot;SELECT public.delete_event_funtion()&quot;)
+conn2.commit()
+cur2.close()
+conn2.close()
+</code></pre>
       
 
       
