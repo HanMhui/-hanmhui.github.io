@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://hanmhui.com">
-  <title>Tag: 技术文章 | HanMingHui</title>
+  <title>Javascript数组 | HanMingHui</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="HanMingHui">
-<meta property="og:url" content="http://hanmhui.com/tags/技术文章/index.html">
+  <meta name="description" content="排序sort方法  var arry=[5,60,20,80,69,2,4]  arry.sort(function(a,b){    return a-b  })  //[2, 4, 5, 20, 60, 69, 80]  arry.sort(function(a,b){    return b-a  })  //[80, 69, 60, 20, 5, 4, 2]   冒泡排序 思路:将每个数字">
+<meta name="keywords" content="Javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript数组">
+<meta property="og:url" content="http://hanmhui.com/2017/07/24/arry-detail/index.html">
 <meta property="og:site_name" content="HanMingHui">
+<meta property="og:description" content="排序sort方法  var arry=[5,60,20,80,69,2,4]  arry.sort(function(a,b){    return a-b  })  //[2, 4, 5, 20, 60, 69, 80]  arry.sort(function(a,b){    return b-a  })  //[80, 69, 60, 20, 5, 4, 2]   冒泡排序 思路:将每个数字">
+<meta property="og:updated_time" content="2017-07-24T06:36:53.428Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HanMingHui">
+<meta name="twitter:title" content="Javascript数组">
+<meta name="twitter:description" content="排序sort方法  var arry=[5,60,20,80,69,2,4]  arry.sort(function(a,b){    return a-b  })  //[2, 4, 5, 20, 60, 69, 80]  arry.sort(function(a,b){    return b-a  })  //[80, 69, 60, 20, 5, 4, 2]   冒泡排序 思路:将每个数字">
   
     <link rel="alternative" href="/atom.xml" title="HanMingHui" type="application/atom+xml">
   
@@ -153,60 +158,158 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-arry-detail" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/17/good-link/" class="archive-article-date">
-  	<time datetime="2017-07-17T07:13:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-17</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/17/good-link/">比较好的文章</a>
+    <h1 class="article-title" itemprop="name">
+      Javascript数组
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        <a href="/2017/07/24/arry-detail/" class="archive-article-date">
+  	<time datetime="2017-07-24T06:10:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-24</time>
+</a>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><p>sort方法</p>
+<blockquote>
+<p>var arry=[5,60,20,80,69,2,4]<br>  arry.sort(function(a,b){<br>    return a-b<br>  })<br>  //[2, 4, 5, 20, 60, 69, 80]<br>  arry.sort(function(a,b){<br>    return b-a<br>  })<br>  //[80, 69, 60, 20, 5, 4, 2]</p>
+</blockquote>
+<p> 冒泡排序<br> 思路:将每个数字都放到数组里，然后将数组的每个数字取值，依次和后面的数字将比较，如果后面的数字大，那顺序不变，相反那就将后面的数字和前面的数字交换位置；</p>
+<blockquote>
+<p>var array = [5,60,20,80,69,2,4];</p>
+<ul>
+<li>var temp = 0;<br>for (var i = 0; i &lt; array.length; i++){<br>for (var j = 0; j &lt; array.length - i; j++){<pre><code>if (array[j] &gt; array[j + 1]){
+    temp = array[j + 1];
+    array[j + 1] = array[j];
+    array[j] = temp;
+}
+</code></pre>  }<br>}<br>console.log(array);</li>
+</ul>
+</blockquote>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags"></i>
 		<ul class="article-tag-list">
 			 
         <li class="article-tag-list-item">
-        	<a href="javascript:void(0)" class="article-tag-list-link color5">技术文章</a>
+        	<a href="javascript:void(0)" class="article-tag-list-link color1">Javascript</a>
         </li>
       
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://hanmhui.com/2017/07/24/arry-detail/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-  
-    </div></section>
-  
 
-    
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/07/18/form-checkout/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">前端表单验证常用的15个正则表达式</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+
 
 
           </div>
@@ -229,9 +332,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
