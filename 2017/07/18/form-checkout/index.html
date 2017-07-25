@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://hanmhui.com/2017/07/18/form-checkout/index.html">
 <meta property="og:site_name" content="HanMingHui">
 <meta property="og:description" content="在表单验证中，使用正则表达式来验证正确与否是一个很频繁的操作，本文收集整理了15个常用的javaScript正则表达式，其中包括用户名、密码强度、整数、数字、电子邮件地址（Email）、手机号码、身份证号、URL地址、 IPv4地址、 十六进制颜色、 日期、 QQ号码、 微信号、车牌号、中文正则。 1 用户名正则 //用户名正则，4到16位（字母，数字，下划线，减号）var uPattern =">
-<meta property="og:updated_time" content="2017-07-18T03:06:19.391Z">
+<meta property="og:updated_time" content="2017-07-25T03:08:11.241Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端表单验证常用的15个正则表达式">
 <meta name="twitter:description" content="在表单验证中，使用正则表达式来验证正确与否是一个很频繁的操作，本文收集整理了15个常用的javaScript正则表达式，其中包括用户名、密码强度、整数、数字、电子邮件地址（Email）、手机号码、身份证号、URL地址、 IPv4地址、 十六进制颜色、 日期、 QQ号码、 微信号、车牌号、中文正则。 1 用户名正则 //用户名正则，4到16位（字母，数字，下划线，减号）var uPattern =">
@@ -178,10 +178,10 @@
       
         <p>在表单验证中，使用正则表达式来验证正确与否是一个很频繁的操作，本文收集整理了15个常用的javaScript正则表达式，其中包括用户名、密码强度、整数、数字、电子邮件地址（Email）、手机号码、身份证号、URL地址、 IPv4地址、 十六进制颜色、 日期、 QQ号码、 微信号、车牌号、中文正则。</p>
 <h3 id="1-用户名正则"><a href="#1-用户名正则" class="headerlink" title="1 用户名正则"></a>1 用户名正则</h3><blockquote>
-<p>//用户名正则，4到16位（字母，数字，下划线，减号）<br>var uPattern = /^[a-zA-Z0-9_-]{4,16}$/;<br>//输出 true<br>console.log(uPattern.test(“caibaojian”));</p>
+<p>//用户名正则，4到16位（字母，数字，下划线，减号）<br>var uPattern = /^[a-zA-Z0-9_-]{4,16}$/;<br>//输出 true<br>console.log(uPattern.test(“hanminghui”));</p>
 </blockquote>
 <h3 id="2-密码强度正则"><a href="#2-密码强度正则" class="headerlink" title="2 密码强度正则"></a>2 密码强度正则</h3><blockquote>
-<p>//密码强度正则，最少6位，包括至少1个大写字母，1个小写字母，1个数字，1个特殊字符<br>var pPattern = /^.<em>(?=.{6,})(?=.</em>\d)(?=.<em>[A-Z])(?=.</em>[a-z])(?=.<em>[!@#$%^&amp;</em>? ]).*$/;<br>//输出 true<br>console.log(“==”+pPattern.test(“caibaojian#”));</p>
+<p>//密码强度正则，最少6位，包括至少1个大写字母，1个小写字母，1个数字，1个特殊字符<br>var pPattern = /^.<em>(?=.{6,})(?=.</em>\d)(?=.<em>[A-Z])(?=.</em>[a-z])(?=.<em>[!@#$%^&amp;</em>? ]).*$/;<br>//输出 true<br>console.log(“==”+pPattern.test(“hanminghui#”));</p>
 </blockquote>
 <h3 id="3-整数正则"><a href="#3-整数正则" class="headerlink" title="3 整数正则"></a>3 整数正则</h3><blockquote>
 <p>//正整数正则<br>var posPattern = /^\d+$/;<br>//负整数正则<br>var negPattern = /^-\d+$/;<br>//整数正则<br>var intPattern = /^-?\d+$/;<br>//输出 true<br>console.log(posPattern.test(“42”));<br>//输出 true<br>console.log(negPattern.test(“-42”));<br>//输出 true<br>console.log(intPattern.test(“-42”));</p>
@@ -190,16 +190,16 @@
 <p>//正数正则<br>var posPattern = /^\d<em>.?\d+$/;<br>//负数正则<br>var negPattern = /^-\d</em>.?\d+$/;<br>//数字正则<br>var numPattern = /^-?\d*.?\d+$/;<br>console.log(posPattern.test(“42.2”));<br>console.log(negPattern.test(“-42.2”));<br>console.log(numPattern.test(“-42.2”));</p>
 </blockquote>
 <h3 id="5-Email正则"><a href="#5-Email正则" class="headerlink" title="5 Email正则"></a>5 Email正则</h3><blockquote>
-<p>//Email正则<br>var ePattern = /^([A-Za-z0-9<em>-.])+\@([A-Za-z0-9</em>-.])+.([A-Za-z]{2,4})$/;<br>//输出 true<br>console.log(ePattern.test(“99154507@qq.com”));</p>
+<p>//Email正则<br>var ePattern = /^([A-Za-z0-9<em>-.])+\@([A-Za-z0-9</em>-.])+.([A-Za-z]{2,4})$/;<br>//输出 true<br>console.log(ePattern.test(“574192341@qq.com”));</p>
 </blockquote>
 <h3 id="6-手机号码正则"><a href="#6-手机号码正则" class="headerlink" title="6 手机号码正则"></a>6 手机号码正则</h3><blockquote>
-<p>//手机号正则<br>var mPattern = /^1[34578]\d{9}$/; //<a href="http://caibaojian.com/regexp-example.html" target="_blank" rel="external">http://caibaojian.com/regexp-example.html</a><br>//输出 true<br>console.log(mPattern.test(“15507621888”));</p>
+<p>//手机号正则<br>var mPattern = /^1[34578]\d{9}$/;<br>//输出 true<br>console.log(mPattern.test(“15507621888”));</p>
 </blockquote>
 <h3 id="7-身份证号正则"><a href="#7-身份证号正则" class="headerlink" title="7 身份证号正则"></a>7 身份证号正则</h3><blockquote>
 <p>//身份证号（18位）正则<br>var cP = /^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/;<br>//输出 true<br>console.log(cP.test(“11010519880605371X”));</p>
 </blockquote>
 <h3 id="8-URL正则"><a href="#8-URL正则" class="headerlink" title="8 URL正则"></a>8 URL正则</h3><blockquote>
-<p>//URL正则<br>var urlP= /^((https?|ftp|file):\/\/)?([\da-z.-]+).([a-z.]{2,6})([\/\w .-]<em>)</em>\/?$/;<br>//输出 true<br>console.log(urlP.test(“<a href="http://caibaojian.com" target="_blank" rel="external">http://caibaojian.com</a>“));</p>
+<p>//URL正则<br>var urlP= /^((https?|ftp|file):\/\/)?([\da-z.-]+).([a-z.]{2,6})([\/\w .-]<em>)</em>\/?$/;<br>//输出 true<br>console.log(urlP.test(“<a href="http://hanminghui.github.io" target="_blank" rel="external">http://hanminghui.github.io</a>“));</p>
 </blockquote>
 <h3 id="9-IPv4地址正则"><a href="#9-IPv4地址正则" class="headerlink" title="9 IPv4地址正则"></a>9 IPv4地址正则</h3><blockquote>
 <p>//ipv4地址正则<br>var ipP = /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;<br>//输出 true<br>console.log(ipP.test(“115.28.47.26”));</p>
@@ -211,16 +211,16 @@
 <p>//日期正则，简单判定,未做月份及日期的判定<br>var dP1 = /^\d{4}(-)\d{1,2}\1\d{1,2}$/;<br>//输出 true<br>console.log(dP1.test(“2017-05-11”));<br>//输出 true<br>console.log(dP1.test(“2017-15-11”));<br>//日期正则，复杂判定<br>var dP2 = /^(?:(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29)$/;<br>//输出 true<br>console.log(dP2.test(“2017-02-11”));<br>//输出 false<br>console.log(dP2.test(“2017-15-11”));<br>//输出 false<br>console.log(dP2.test(“2017-02-29”));</p>
 </blockquote>
 <h3 id="12-QQ号码正则"><a href="#12-QQ号码正则" class="headerlink" title="12 QQ号码正则"></a>12 QQ号码正则</h3><blockquote>
-<p>//QQ号正则，5至11位<br>var qqPattern = /^[1-9][0-9]{4,10}$/;<br>//输出 true<br>console.log(qqPattern.test(“65974040”));</p>
+<p>//QQ号正则，5至11位<br>var qqPattern = /^[1-9][0-9]{4,10}$/;<br>//输出 true<br>console.log(qqPattern.test(“574192341”));</p>
 </blockquote>
 <h3 id="13-微信号正则"><a href="#13-微信号正则" class="headerlink" title="13 微信号正则"></a>13 微信号正则</h3><blockquote>
-<p>//微信号正则，6至20位，以字母开头，字母，数字，减号，下划线<br>var wxPattern = /^<a href="[-_a-zA-Z0-9]{5,19}">a-zA-Z</a>+$/;<br>//输出 true<br>console.log(wxPattern.test(“caibaojian_com”));</p>
+<p>//微信号正则，6至20位，以字母开头，字母，数字，减号，下划线<br>var wxPattern = /^<a href="[-_a-zA-Z0-9]{5,19}">a-zA-Z</a>+$/;<br>//输出 true<br>console.log(wxPattern.test(“h_574192341”));</p>
 </blockquote>
 <h3 id="14-车牌号正则"><a href="#14-车牌号正则" class="headerlink" title="14 车牌号正则"></a>14 车牌号正则</h3><blockquote>
-<p>//车牌号正则<br>var cPattern = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-Z0-9]{4}[A-Z0-9挂学警港澳]{1}$/;<br>//输出 true<br>console.log(cPattern.test(“粤B39006”));</p>
+<p>//车牌号正则<br>var cPattern = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-Z0-9]{4}[A-Z0-9挂学警港澳]{1}$/;<br>//输出 true<br>console.log(cPattern.test(“黑A39006”));</p>
 </blockquote>
 <h3 id="15-包含中文正则"><a href="#15-包含中文正则" class="headerlink" title="15 包含中文正则"></a>15 包含中文正则</h3><blockquote>
-<p>//包含中文正则<br>var cnPattern = /[\u4E00-\u9FA5]/;<br>//输出 true<br>console.log(cnPattern.test(“蔡宝坚”));</p>
+<p>//包含中文正则<br>var cnPattern = /[\u4E00-\u9FA5]/;<br>//输出 true<br>console.log(cnPattern.test(“韩明惠”));</p>
 </blockquote>
 
       
@@ -452,11 +452,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color5">技术文章</a>
+                <a href="javascript:void(0)" class="color1">Javascript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color1">Javascript</a>
+                <a href="javascript:void(0)" class="color5">技术文章</a>
               </li>
              
               <li class="article-tag-list-item">
