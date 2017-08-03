@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://hanmhui.com">
-  <title>HanMingHui</title>
+  <title>解决一行文本溢出隐藏点击展开之后全部显示并自动换行每行长度一致问题 | HanMingHui</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Document 	 		//日期格式化 		const time_format=()=&amp;gt;{ 			const date=new Date(); 			let year=date.getFullYear(); 			let month=zero_add(date.getMonth()+1); 			let day=zero_add(date.getDate()); 			let hou">
-<meta property="og:type" content="website">
-<meta property="og:title" content="HanMingHui">
-<meta property="og:url" content="http://hanmhui.com/assets/notes/index.html">
+  <meta name="description" content="一行数据文本内容太多，把页面撑得很长影响美观。该方法可以实现当一行文本内容超过固定长度后，收缩起来，显示一个“展开”按钮，用户一点击后就显示全部内容。当然多行文本也同样适用，（若是全部是中文也可以使用判断判断字符串长度的方法，中文占用两个字符，但是若文章中含有英文就不适合了，因为字母i所占用的长度非常短一个汉字所占用的字符多余2个i，就会出现长短不一的情况；)本文所展示方法解决了这个问题。 htm">
+<meta name="keywords" content="Javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解决一行文本溢出隐藏点击展开之后全部显示并自动换行每行长度一致问题">
+<meta property="og:url" content="http://hanmhui.com/2017/08/03/解决文本溢出隐藏点击展开之后换行问题/index.html">
 <meta property="og:site_name" content="HanMingHui">
-<meta property="og:description" content="Document 	 		//日期格式化 		const time_format=()=&amp;gt;{ 			const date=new Date(); 			let year=date.getFullYear(); 			let month=zero_add(date.getMonth()+1); 			let day=zero_add(date.getDate()); 			let hou">
-<meta property="og:updated_time" content="2017-07-19T06:19:33.183Z">
+<meta property="og:description" content="一行数据文本内容太多，把页面撑得很长影响美观。该方法可以实现当一行文本内容超过固定长度后，收缩起来，显示一个“展开”按钮，用户一点击后就显示全部内容。当然多行文本也同样适用，（若是全部是中文也可以使用判断判断字符串长度的方法，中文占用两个字符，但是若文章中含有英文就不适合了，因为字母i所占用的长度非常短一个汉字所占用的字符多余2个i，就会出现长短不一的情况；)本文所展示方法解决了这个问题。 htm">
+<meta property="og:updated_time" content="2017-08-03T07:00:38.755Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HanMingHui">
-<meta name="twitter:description" content="Document 	 		//日期格式化 		const time_format=()=&amp;gt;{ 			const date=new Date(); 			let year=date.getFullYear(); 			let month=zero_add(date.getMonth()+1); 			let day=zero_add(date.getDate()); 			let hou">
+<meta name="twitter:title" content="解决一行文本溢出隐藏点击展开之后全部显示并自动换行每行长度一致问题">
+<meta name="twitter:description" content="一行数据文本内容太多，把页面撑得很长影响美观。该方法可以实现当一行文本内容超过固定长度后，收缩起来，显示一个“展开”按钮，用户一点击后就显示全部内容。当然多行文本也同样适用，（若是全部是中文也可以使用判断判断字符串长度的方法，中文占用两个字符，但是若文章中含有英文就不适合了，因为字母i所占用的长度非常短一个汉字所占用的字符多余2个i，就会出现长短不一的情况；)本文所展示方法解决了这个问题。 htm">
   
     <link rel="alternative" href="/atom.xml" title="HanMingHui" type="application/atom+xml">
   
@@ -157,44 +158,28 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-undefined" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-解决文本溢出隐藏点击展开之后换行问题" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      解决一行文本溢出隐藏点击展开之后全部显示并自动换行每行长度一致问题
+    </h1>
+  
+
+        <a href="/2017/08/03/解决文本溢出隐藏点击展开之后换行问题/" class="archive-article-date">
+  	<time datetime="2017-08-03T06:21:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-03</time>
+</a>
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<script>
-		//日期格式化
-		const time_format=()=>{
-			const date=new Date();
-			let year=date.getFullYear();
-			let month=zero_add(date.getMonth()+1);
-			let day=zero_add(date.getDate());
-			let hours=zero_add(date.getHours());
-			let minutes=zero_add(date.getMinutes());
-			let seconds=zero_add(date.getSeconds());
-			return year+'-'+month+'-'+day+" "+hours+':'+minutes+':'+seconds
-			// 2017-7-19
-		}
-		const zero_add=(date)=>{
-			if(date<10)
-				date='0'+date
-            return date
-		}
-		console.log(time_format())
-	    
-        
-	</script>
-</head>
-<body>
-	55555555555555555555555555555555
-</body>
-</html>
-
+        <p>一行数据文本内容太多，把页面撑得很长影响美观。该方法可以实现当一行文本内容超过固定长度后，收缩起来，显示一个“展开”按钮，用户一点击后就显示全部内容。当然多行文本也同样适用，（若是全部是中文也可以使用判断判断字符串长度的方法，中文占用两个字符，但是若文章中含有英文就不适合了，因为字母i所占用的长度非常短一个汉字所占用的字符多余2个i，就会出现长短不一的情况；)本文所展示方法解决了这个问题。</p>
+<h4 id="html"><a href="#html" class="headerlink" title="html"></a>html</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"width: 250px; position: absolute;"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span>&gt;</span></div><div class="line">        first my gaze toward the moon, but the moon shines on the ditch. “我本一心向明月，奈何明月照沟渠”</div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">Onclick</span>=<span class="string">'more()'</span> <span class="attr">id</span>=<span class="string">'expand'</span>&gt;</span></div><div class="line">        展开</div><div class="line">    <span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">Onclick</span>=<span class="string">'pack()'</span> <span class="attr">id</span>=<span class="string">"pack"</span>&gt;</span></div><div class="line">        收起</div><div class="line">    <span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="css"><a href="#css" class="headerlink" title="css"></a>css</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#content</span>&#123;</div><div class="line">       <span class="attribute">width</span>: <span class="number">150px</span>;</div><div class="line">       <span class="attribute">height</span>: <span class="number">25px</span>; </div><div class="line">       <span class="attribute">float</span>:left;</div><div class="line">       <span class="attribute">overflow</span>: auto;</div><div class="line">       <span class="attribute">word-wrap</span>:break-word;</div><div class="line">       <span class="attribute">word-break</span>: break-all;</div><div class="line">       <span class="attribute">text-overflow</span>:ellipsis;</div><div class="line">       <span class="attribute">white-space</span>:nowrap;     </div><div class="line">   &#125;</div><div class="line">   <span class="selector-tag">a</span>&#123;</div><div class="line">       <span class="attribute">float</span>:right;</div><div class="line">       <span class="attribute">margin-left</span>: <span class="number">30px</span>;</div><div class="line">       <span class="attribute">position</span>: absolute;</div><div class="line">       <span class="attribute">top</span>: <span class="number">0</span>;</div><div class="line">       <span class="attribute">right</span>: <span class="number">0</span>;</div><div class="line">   &#125;</div><div class="line">   <span class="selector-id">#pack</span>&#123;</div><div class="line">       <span class="attribute">display</span>: none;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<h3 id="javascript"><a href="#javascript" class="headerlink" title="javascript"></a>javascript</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">// element.scrollHeight---文章内容的实际高度   element.clientHeight---文章内容的显示高度</span></div><div class="line">    <span class="comment">// element.scrollWidth---文章内容的实际宽度   element.clientWidth ---文章内容的显示宽度</span></div><div class="line">    <span class="keyword">var</span> element=<span class="built_in">document</span>.getElementById(<span class="string">"content"</span>)</div><div class="line">    <span class="keyword">if</span>(element.scrollHeight&gt;element.clientHeight)&#123;</div><div class="line">        element.style=<span class="string">'overflow:hidden;'</span></div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        <span class="built_in">document</span>.getElementById(<span class="string">"expand"</span>).style=<span class="string">"display:none"</span></div><div class="line">    &#125;</div><div class="line">    </div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">more</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">document</span>.getElementById(<span class="string">"content"</span>).style=<span class="string">'overflow:visible; white-space:normal;'</span></div><div class="line">    <span class="built_in">document</span>.getElementById(<span class="string">"expand"</span>).style=<span class="string">"display:none"</span></div><div class="line">    <span class="built_in">document</span>.getElementById(<span class="string">"pack"</span>).style=<span class="string">"display:block"</span></div><div class="line"></div><div class="line"> &#125;</div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">pack</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">document</span>.getElementById(<span class="string">"content"</span>).style=<span class="string">'display:block;overflow:hidden'</span></div><div class="line">    <span class="built_in">document</span>.getElementById(<span class="string">"expand"</span>).style=<span class="string">"display:block"</span></div><div class="line">    <span class="built_in">document</span>.getElementById(<span class="string">"pack"</span>).style=<span class="string">"display:none"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
 
@@ -224,6 +209,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list">
+			 
+        <li class="article-tag-list-item">
+        	<a href="javascript:void(0)" class="article-tag-list-link color1">Javascript</a>
+        </li>
+      
+		</ul>
+	</div>
+
       
 
       
@@ -274,7 +270,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://hanmhui.com/assets/notes/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://hanmhui.com/2017/08/03/解决文本溢出隐藏点击展开之后换行问题/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -286,6 +282,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2017/07/25/python相关/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python相关</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 
 
@@ -314,7 +320,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

@@ -155,6 +155,69 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-解决文本溢出隐藏点击展开之后换行问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/03/解决文本溢出隐藏点击展开之后换行问题/">解决一行文本溢出隐藏点击展开之后全部显示并自动换行每行长度一致问题</a>
+    </h1>
+  
+
+        <a href="/2017/08/03/解决文本溢出隐藏点击展开之后换行问题/" class="archive-article-date">
+  	<time datetime="2017-08-03T06:21:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-03</time>
+</a>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一行数据文本内容太多，把页面撑得很长影响美观。该方法可以实现当一行文本内容超过固定长度后，收缩起来，显示一个“展开”按钮，用户一点击后就显示全部内容。当然多行文本也同样适用，（若是全部是中文也可以使用判断判断字符串长度的方法，中文占用两个字符，但是若文章中含有英文就不适合了，因为字母i所占用的长度非常短一个汉字所占用的字符多余2个i，就会出现长短不一的情况；)本文所展示方法解决了这个问题。</p>
+<h4 id="html"><a href="#html" class="headerlink" title="html"></a>html</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"width: 250px; position: absolute;"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span>&gt;</span></div><div class="line">        first my gaze toward the moon, but the moon shines on the ditch. “我本一心向明月，奈何明月照沟渠”</div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">Onclick</span>=<span class="string">'more()'</span> <span class="attr">id</span>=<span class="string">'expand'</span>&gt;</span></div><div class="line">        展开</div><div class="line">    <span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">Onclick</span>=<span class="string">'pack()'</span> <span class="attr">id</span>=<span class="string">"pack"</span>&gt;</span></div><div class="line">        收起</div><div class="line">    <span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="css"><a href="#css" class="headerlink" title="css"></a>css</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#content</span>&#123;</div><div class="line">       <span class="attribute">width</span>: <span class="number">150px</span>;</div><div class="line">       <span class="attribute">height</span>: <span class="number">25px</span>; </div><div class="line">       <span class="attribute">float</span>:left;</div><div class="line">       <span class="attribute">overflow</span>: auto;</div><div class="line">       <span class="attribute">word-wrap</span>:break-word;</div><div class="line">       <span class="attribute">word-break</span>: break-all;</div><div class="line">       <span class="attribute">text-overflow</span>:ellipsis;</div><div class="line">       <span class="attribute">white-space</span>:nowrap;     </div><div class="line">   &#125;</div><div class="line">   <span class="selector-tag">a</span>&#123;</div><div class="line">       <span class="attribute">float</span>:right;</div><div class="line">       <span class="attribute">margin-left</span>: <span class="number">30px</span>;</div><div class="line">       <span class="attribute">position</span>: absolute;</div><div class="line">       <span class="attribute">top</span>: <span class="number">0</span>;</div><div class="line">       <span class="attribute">right</span>: <span class="number">0</span>;</div><div class="line">   &#125;</div><div class="line">   <span class="selector-id">#pack</span>&#123;</div><div class="line">       <span class="attribute">display</span>: none;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<h3 id="javascript"><a href="#javascript" class="headerlink" title="javascript"></a>javascript</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">// element.scrollHeight---文章内容的实际高度   element.clientHeight---文章内容的显示高度</span></div><div class="line">    <span class="comment">// element.scrollWidth---文章内容的实际宽度   element.clientWidth ---文章内容的显示宽度</span></div><div class="line">    <span class="keyword">var</span> element=<span class="built_in">document</span>.getElementById(<span class="string">"content"</span>)</div><div class="line">    <span class="keyword">if</span>(element.scrollHeight&gt;element.clientHeight)&#123;</div><div class="line">        element.style=<span class="string">'overflow:hidden;'</span></div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        <span class="built_in">document</span>.getElementById(<span class="string">"expand"</span>).style=<span class="string">"display:none"</span></div><div class="line">    &#125;</div><div class="line">    </div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">more</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">document</span>.getElementById(<span class="string">"content"</span>).style=<span class="string">'overflow:visible; white-space:normal;'</span></div><div class="line">    <span class="built_in">document</span>.getElementById(<span class="string">"expand"</span>).style=<span class="string">"display:none"</span></div><div class="line">    <span class="built_in">document</span>.getElementById(<span class="string">"pack"</span>).style=<span class="string">"display:block"</span></div><div class="line"></div><div class="line"> &#125;</div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">pack</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">document</span>.getElementById(<span class="string">"content"</span>).style=<span class="string">'display:block;overflow:hidden'</span></div><div class="line">    <span class="built_in">document</span>.getElementById(<span class="string">"expand"</span>).style=<span class="string">"display:block"</span></div><div class="line">    <span class="built_in">document</span>.getElementById(<span class="string">"pack"</span>).style=<span class="string">"display:none"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list">
+			 
+        <li class="article-tag-list-item">
+        	<a href="javascript:void(0)" class="article-tag-list-link color1">Javascript</a>
+        </li>
+      
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/03/解决文本溢出隐藏点击展开之后换行问题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-python相关" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -175,8 +238,12 @@
       
         <h3 id="获取命令行参数"><a href="#获取命令行参数" class="headerlink" title="获取命令行参数"></a>获取命令行参数</h3><p>如运行 python run.py hello 在run.py内部获得hello<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="keyword">print</span> sys.argv[<span class="number">1</span>] <span class="comment">#hello</span></div></pre></td></tr></table></figure></p>
 <h3 id="连接elasticsearch"><a href="#连接elasticsearch" class="headerlink" title="连接elasticsearch"></a>连接elasticsearch</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">es = Elasticsearch([&#123;<span class="string">'host'</span>:<span class="string">'ip'</span>,<span class="string">'port'</span>:<span class="number">3000</span>&#125;])</div><div class="line">es.delete(index=<span class="string">'h'</span>,timeout=<span class="number">30</span>)<span class="comment">#清理htc</span></div></pre></td></tr></table></figure>
+<h3 id="删除所有以logstash-开始的索引"><a href="#删除所有以logstash-开始的索引" class="headerlink" title="删除所有以logstash-开始的索引"></a>删除所有以logstash-开始的索引</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">curl -XDELETE &apos;http://host.IP.address:9200/logstash-*&apos;</div><div class="line">#linux 命令</div></pre></td></tr></table></figure>
 <h1 id="清理h数据库（执行数据库中函数）"><a href="#清理h数据库（执行数据库中函数）" class="headerlink" title="清理h数据库（执行数据库中函数）"></a>清理h数据库（执行数据库中函数）</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">conn = psycopg2.connect(database=<span class="string">'h'</span>, user=<span class="string">"postgres"</span>,password=<span class="string">"1111"</span>, host=<span class="string">"ip"</span>, port=<span class="string">"5432"</span>)</div><div class="line">cur = conn.cursor()</div><div class="line">cur.execute(<span class="string">"SELECT public.delete_event_funtion()"</span>)<span class="comment">#函数语句获得方式如下图1</span></div><div class="line">conn.commit()</div><div class="line">cur.close()</div><div class="line">conn.close()</div></pre></td></tr></table></figure>
 <div align="center"><img src="/assets/images/python/sqldb.png" alt="图1"></div>
+
+
+
       
 
       
@@ -679,11 +746,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color5">技术文章</a>
+                <a href="javascript:void(0)" class="color2">Github</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color2">Github</a>
+                <a href="javascript:void(0)" class="color5">技术文章</a>
               </li>
             
             <div class="clearfix"></div>
